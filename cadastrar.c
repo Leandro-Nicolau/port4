@@ -50,6 +50,13 @@ struct disciplina disciplinas[100];
 struct cursos cursos[100];
 struct funcionario funcionarios[100];
 
+int qtdAlunos = 0;
+int qtdProfessores = 0;
+int qtdTurmas = 0;
+int qtdDisciplinas = 0;
+int qtdCursos = 0;
+int qtdFuncionarios = 0;
+
 void cadastrarAluno(int quantidade){
     for(int i=0;i<quantidade;i++){
         printf("Codigo do aluno:\n");

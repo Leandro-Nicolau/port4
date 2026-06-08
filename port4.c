@@ -3,44 +3,94 @@
 
 int main(){
 
-    int menu = 0;
-    printf("===== SISTEMA DE CADASTROS ESCOLARES =====\n1 - Cadastrar aluno\2 - Listar alunos\n3 - Cadastrar professor\n4 - Listar professores\n5 - Cadastrar turma\n6 - Listar turmas\n7 - Cadastrar disciplina\n8 - Listar disciplinas\n9 - Cadastrar curso\n10 - Listar cursos\n11 - Cadastrar funcionário\n12 - Listar funcionários\n0 - Sair\nEscolha uma opção:\n");
-    scanf("%d",&menu);
+    int menu;
+    int quantidade;
 
-    switch (menu){
-    case 1:
-        break;
-    case 2:
-        break;
-    case 3:
-        break;
-    case 4:
-        break;
-    case 5:
-        break;
-    case 6:
-        break;
-    case 7:
-        break;
-    case 8:
-        break;
-    case 9:
-        break;
-    case 10:
-        break;
-    case 11:
-        int quantidade;
-        printf("Quantos vc quer cadastrar?\n");
-        scanf("%d",&quantidade);
-        cadastrarFuncionario(quantidade);
-        break;
-    case 12:
-        break;
-    case 0:
-        break;                          
-    default:
-        break;
-    }
+    do{
+
+        printf("\n===== SISTEMA DE CADASTROS ESCOLARES =====\n");
+        printf("1 - Cadastrar aluno\n");
+        printf("2 - Listar alunos\n");
+        printf("3 - Cadastrar professor\n");
+        printf("4 - Listar professores\n");
+        printf("5 - Cadastrar turma\n");
+        printf("6 - Listar turmas\n");
+        printf("7 - Cadastrar disciplina\n");
+        printf("8 - Listar disciplinas\n");
+        printf("9 - Cadastrar curso\n");
+        printf("10 - Listar cursos\n");
+        printf("11 - Cadastrar funcionario\n");
+        printf("12 - Listar funcionarios\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma opcao:\n");
+
+        scanf("%d",&menu);
+
+        switch(menu){
+
+            case 1:
+                printf("Quantidade:\n");
+                scanf("%d",&quantidade);
+                cadastrarAluno(quantidade);
+                break;
+
+            case 2:
+                listarAlunos(quantidade);
+                break;
+
+            case 3:
+                printf("Quantidade:\n");
+                scanf("%d",&quantidade);
+                cadastrarProfessor(quantidade);
+                break;
+
+            case 4:
+                listarProfessores(quantidade);
+                break;
+
+            case 5:
+                printf("Quantidade:\n");
+                scanf("%d",&quantidade);
+                cadastrarTurma(quantidade);
+                break;
+
+            case 6:
+                listarTurmas(quantidade);
+                break;
+
+            case 7:
+                printf("Quantidade:\n");
+                scanf("%d",&quantidade);
+                cadastrarDisciplina(quantidade);
+                break;
+
+            case 8:
+                listarDisciplinas(quantidade);
+                break;
+
+            case 9:
+                printf("Quantidade:\n");
+                scanf("%d",&quantidade);
+                cadastrarCurso(quantidade);
+                break;
+
+            case 10:
+                listarCursos(quantidade);
+                break;
+
+            case 11:
+                printf("Quantidade:\n");
+                scanf("%d",&quantidade);
+                cadastrarFuncionario(quantidade);
+                break;
+
+            case 12:
+                listarFuncionarios(quantidade);
+                break;
+
+        }
+
+    }while(menu != 0);
 
     return 0;
 }

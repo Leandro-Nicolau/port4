@@ -22,72 +22,78 @@ int main(){
         printf("11 - Cadastrar funcionario\n");
         printf("12 - Listar funcionarios\n");
         printf("0 - Sair\n");
-        printf("Escolha uma opcao:\n");
+        printf("Escolha uma opcao: ");
 
         scanf("%d",&menu);
 
         switch(menu){
 
             case 1:
-                printf("Quantidade:\n");
+                printf("Quantos alunos deseja cadastrar? ");
                 scanf("%d",&quantidade);
                 cadastrarAluno(quantidade);
                 break;
 
             case 2:
-                listarAlunos(quantidade);
+                listarAlunos();
                 break;
 
             case 3:
-                printf("Quantidade:\n");
+                printf("Quantos professores deseja cadastrar? ");
                 scanf("%d",&quantidade);
                 cadastrarProfessor(quantidade);
                 break;
 
             case 4:
-                listarProfessores(quantidade);
+                listarProfessores();
                 break;
 
             case 5:
-                printf("Quantidade:\n");
+                printf("Quantas turmas deseja cadastrar? ");
                 scanf("%d",&quantidade);
                 cadastrarTurma(quantidade);
                 break;
 
             case 6:
-                listarTurmas(quantidade);
+                listarTurmas();
                 break;
 
             case 7:
-                printf("Quantidade:\n");
+                printf("Quantas disciplinas deseja cadastrar? ");
                 scanf("%d",&quantidade);
                 cadastrarDisciplina(quantidade);
                 break;
 
             case 8:
-                listarDisciplinas(quantidade);
+                listarDisciplinas();
                 break;
 
             case 9:
-                printf("Quantidade:\n");
+                printf("Quantos cursos deseja cadastrar? ");
                 scanf("%d",&quantidade);
                 cadastrarCurso(quantidade);
                 break;
 
             case 10:
-                listarCursos(quantidade);
+                listarCursos();
                 break;
 
             case 11:
-                printf("Quantidade:\n");
+                printf("Quantos funcionarios deseja cadastrar? ");
                 scanf("%d",&quantidade);
                 cadastrarFuncionario(quantidade);
                 break;
 
             case 12:
-                listarFuncionarios(quantidade);
+                listarFuncionarios();
                 break;
 
+            case 0:
+                printf("Programa encerrado.\n");
+                break;
+
+            default:
+                printf("Opcao invalida!\n");
         }
 
     }while(menu != 0);

@@ -5,20 +5,20 @@ struct aluno{
     int codigo;
     char nome[50];
     int idade;
-    char turma[10];
+    char turma[20];
 };
 
 struct professor{
     int codigo;
     char nome[50];
     char disciplina[50];
-    char telefone[11];
+    char telefone[15];
 };
 
 struct turma{
     int codigo;
     char nome[50];
-    char periodo[50];
+    char periodo[20];
     int sala;
 };
 
@@ -29,25 +29,25 @@ struct disciplina{
     char professor[50];
 };
 
-struct cursos{
+struct curso{
     int codigo;
     char nome[50];
     int semestres;
-    char turno[50];
+    char turno[20];
 };
 
 struct funcionario{
     int codigo;
     char nome[50];
     char cargo[50];
-    char telefone[11];
+    char telefone[15];
 };
 
 struct aluno alunos[100];
 struct professor professores[100];
 struct turma turmas[100];
 struct disciplina disciplinas[100];
-struct cursos cursos[100];
+struct curso cursos[100];
 struct funcionario funcionarios[100];
 
 int qtdAlunos = 0;
@@ -57,152 +57,236 @@ int qtdDisciplinas = 0;
 int qtdCursos = 0;
 int qtdFuncionarios = 0;
 
+/* ALUNOS */
+
 void cadastrarAluno(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("Codigo do aluno:\n");
+
+    int i;
+
+    for(i = qtdAlunos; i < qtdAlunos + quantidade; i++){
+
+        printf("Codigo do aluno: ");
         scanf("%d",&alunos[i].codigo);
 
-        printf("Nome do aluno:\n");
-        scanf("%s",alunos[i].nome);
+        printf("Nome do aluno: ");
+        scanf(" %[^\n]", alunos[i].nome);
 
-        printf("Idade:\n");
+        printf("Idade: ");
         scanf("%d",&alunos[i].idade);
 
-        printf("Turma:\n");
-        scanf("%s",alunos[i].turma);
+        printf("Turma: ");
+        scanf(" %[^\n]", alunos[i].turma);
+    }
+
+    qtdAlunos += quantidade;
+}
+
+void listarAlunos(){
+
+    int i;
+
+    printf("\n===== ALUNOS =====\n");
+
+    for(i=0;i<qtdAlunos;i++){
+
+        printf("\nCodigo: %d", alunos[i].codigo);
+        printf("\nNome: %s", alunos[i].nome);
+        printf("\nIdade: %d", alunos[i].idade);
+        printf("\nTurma: %s\n", alunos[i].turma);
     }
 }
 
-void listarAlunos(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("\nCodigo: %d",alunos[i].codigo);
-        printf("\nNome: %s",alunos[i].nome);
-        printf("\nIdade: %d",alunos[i].idade);
-        printf("\nTurma: %s\n",alunos[i].turma);
-    }
-}
+/* PROFESSORES */
 
 void cadastrarProfessor(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("Codigo do professor:\n");
+
+    int i;
+
+    for(i=qtdProfessores;i<qtdProfessores+quantidade;i++){
+
+        printf("Codigo do professor: ");
         scanf("%d",&professores[i].codigo);
 
-        printf("Nome do professor:\n");
-        scanf("%s",professores[i].nome);
+        printf("Nome do professor: ");
+        scanf(" %[^\n]", professores[i].nome);
 
-        printf("Disciplina:\n");
-        scanf("%s",professores[i].disciplina);
+        printf("Disciplina: ");
+        scanf(" %[^\n]", professores[i].disciplina);
 
-        printf("Telefone:\n");
-        scanf("%s",professores[i].telefone);
+        printf("Telefone: ");
+        scanf("%s", professores[i].telefone);
+    }
+
+    qtdProfessores += quantidade;
+}
+
+void listarProfessores(){
+
+    int i;
+
+    printf("\n===== PROFESSORES =====\n");
+
+    for(i=0;i<qtdProfessores;i++){
+
+        printf("\nCodigo: %d", professores[i].codigo);
+        printf("\nNome: %s", professores[i].nome);
+        printf("\nDisciplina: %s", professores[i].disciplina);
+        printf("\nTelefone: %s\n", professores[i].telefone);
     }
 }
 
-void listarProfessores(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("\nCodigo: %d",professores[i].codigo);
-        printf("\nNome: %s",professores[i].nome);
-        printf("\nDisciplina: %s",professores[i].disciplina);
-        printf("\nTelefone: %s\n",professores[i].telefone);
-    }
-}
+/* TURMAS */
 
 void cadastrarTurma(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("Codigo da turma:\n");
+
+    int i;
+
+    for(i=qtdTurmas;i<qtdTurmas+quantidade;i++){
+
+        printf("Codigo da turma: ");
         scanf("%d",&turmas[i].codigo);
 
-        printf("Nome da turma:\n");
-        scanf("%s",turmas[i].nome);
+        printf("Nome da turma: ");
+        scanf(" %[^\n]", turmas[i].nome);
 
-        printf("Periodo:\n");
-        scanf("%s",turmas[i].periodo);
+        printf("Periodo: ");
+        scanf(" %[^\n]", turmas[i].periodo);
 
-        printf("Sala:\n");
+        printf("Sala: ");
         scanf("%d",&turmas[i].sala);
     }
+
+    qtdTurmas += quantidade;
 }
 
-void listarTurmas(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("\nCodigo: %d",turmas[i].codigo);
-        printf("\nNome: %s",turmas[i].nome);
-        printf("\nPeriodo: %s",turmas[i].periodo);
-        printf("\nSala: %d\n",turmas[i].sala);
+void listarTurmas(){
+
+    int i;
+
+    printf("\n===== TURMAS =====\n");
+
+    for(i=0;i<qtdTurmas;i++){
+
+        printf("\nCodigo: %d", turmas[i].codigo);
+        printf("\nNome: %s", turmas[i].nome);
+        printf("\nPeriodo: %s", turmas[i].periodo);
+        printf("\nSala: %d\n", turmas[i].sala);
     }
 }
+
+/* DISCIPLINAS */
 
 void cadastrarDisciplina(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("Codigo da disciplina:\n");
+
+    int i;
+
+    for(i=qtdDisciplinas;i<qtdDisciplinas+quantidade;i++){
+
+        printf("Codigo da disciplina: ");
         scanf("%d",&disciplinas[i].codigo);
 
-        printf("Nome da disciplina:\n");
-        scanf("%s",disciplinas[i].nome);
+        printf("Nome da disciplina: ");
+        scanf(" %[^\n]", disciplinas[i].nome);
 
-        printf("Carga horaria:\n");
+        printf("Carga horaria: ");
         scanf("%d",&disciplinas[i].carga);
 
-        printf("Professor:\n");
-        scanf("%s",disciplinas[i].professor);
+        printf("Professor responsavel: ");
+        scanf(" %[^\n]", disciplinas[i].professor);
+    }
+
+    qtdDisciplinas += quantidade;
+}
+
+void listarDisciplinas(){
+
+    int i;
+
+    printf("\n===== DISCIPLINAS =====\n");
+
+    for(i=0;i<qtdDisciplinas;i++){
+
+        printf("\nCodigo: %d", disciplinas[i].codigo);
+        printf("\nNome: %s", disciplinas[i].nome);
+        printf("\nCarga Horaria: %d", disciplinas[i].carga);
+        printf("\nProfessor: %s\n", disciplinas[i].professor);
     }
 }
 
-void listarDisciplinas(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("\nCodigo: %d",disciplinas[i].codigo);
-        printf("\nNome: %s",disciplinas[i].nome);
-        printf("\nCarga Horaria: %d",disciplinas[i].carga);
-        printf("\nProfessor: %s\n",disciplinas[i].professor);
-    }
-}
+/* CURSOS */
 
 void cadastrarCurso(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("Codigo do curso:\n");
+
+    int i;
+
+    for(i=qtdCursos;i<qtdCursos+quantidade;i++){
+
+        printf("Codigo do curso: ");
         scanf("%d",&cursos[i].codigo);
 
-        printf("Nome do curso:\n");
-        scanf("%s",cursos[i].nome);
+        printf("Nome do curso: ");
+        scanf(" %[^\n]", cursos[i].nome);
 
-        printf("Semestres:\n");
+        printf("Semestres: ");
         scanf("%d",&cursos[i].semestres);
 
-        printf("Turno:\n");
-        scanf("%s",cursos[i].turno);
+        printf("Turno: ");
+        scanf(" %[^\n]", cursos[i].turno);
+    }
+
+    qtdCursos += quantidade;
+}
+
+void listarCursos(){
+
+    int i;
+
+    printf("\n===== CURSOS =====\n");
+
+    for(i=0;i<qtdCursos;i++){
+
+        printf("\nCodigo: %d", cursos[i].codigo);
+        printf("\nNome: %s", cursos[i].nome);
+        printf("\nSemestres: %d", cursos[i].semestres);
+        printf("\nTurno: %s\n", cursos[i].turno);
     }
 }
 
-void listarCursos(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("\nCodigo: %d",cursos[i].codigo);
-        printf("\nNome: %s",cursos[i].nome);
-        printf("\nSemestres: %d",cursos[i].semestres);
-        printf("\nTurno: %s\n",cursos[i].turno);
-    }
-}
+/* FUNCIONARIOS */
 
 void cadastrarFuncionario(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("Codigo do funcionario:\n");
+
+    int i;
+
+    for(i=qtdFuncionarios;i<qtdFuncionarios+quantidade;i++){
+
+        printf("Codigo do funcionario: ");
         scanf("%d",&funcionarios[i].codigo);
 
-        printf("Nome do funcionario:\n");
-        scanf("%s",funcionarios[i].nome);
+        printf("Nome do funcionario: ");
+        scanf(" %[^\n]", funcionarios[i].nome);
 
-        printf("Cargo do funcionario:\n");
-        scanf("%s",funcionarios[i].cargo);
+        printf("Cargo: ");
+        scanf(" %[^\n]", funcionarios[i].cargo);
 
-        printf("Telefone do funcionario:\n");
-        scanf("%s",funcionarios[i].telefone);
+        printf("Telefone: ");
+        scanf("%s", funcionarios[i].telefone);
     }
+
+    qtdFuncionarios += quantidade;
 }
 
-void listarFuncionarios(int quantidade){
-    for(int i=0;i<quantidade;i++){
-        printf("\nCodigo: %d",funcionarios[i].codigo);
-        printf("\nNome: %s",funcionarios[i].nome);
-        printf("\nCargo: %s",funcionarios[i].cargo);
-        printf("\nTelefone: %s\n",funcionarios[i].telefone);
+void listarFuncionarios(){
+
+    int i;
+
+    printf("\n===== FUNCIONARIOS =====\n");
+
+    for(i=0;i<qtdFuncionarios;i++){
+
+        printf("\nCodigo: %d", funcionarios[i].codigo);
+        printf("\nNome: %s", funcionarios[i].nome);
+        printf("\nCargo: %s", funcionarios[i].cargo);
+        printf("\nTelefone: %s\n", funcionarios[i].telefone);
     }
 }
